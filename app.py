@@ -21,11 +21,12 @@ def index():
 
             try:
                 private_key_data, certificate_data, additional_certificates_data = generate_data(file_bytes, password)
+                return render_template("results.html", private_key_data = private_key_data,
+                                        certificate_data = certificate_data,
+                                        additional_certificates_data = additional_certificates_data )
             except ValueError:
                 flash("Contraseña o archivo incorrecto", 'danger')
-                print("errorrr")
-
-            return redirect(url_for("index"))
+                return redirect(url_for("index"))
 
 
     return render_template("index.html")
