@@ -40,7 +40,6 @@ def get_key_usage(cert):
         usage = usage + 'Crl Sign, '
     return usage
 
-
 def load_PKCS12(data, password):
     private_key, certificate, additional_certificates = load_key_and_certificates(data, password, backend=default_backend())
     return private_key, certificate, additional_certificates
